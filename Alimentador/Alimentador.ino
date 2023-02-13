@@ -25,7 +25,7 @@ void loop() {
     servoBase.write(200);
     delay(openTime * 1000);
     Serial.println("close");
-  	servoBase.write(0);
+    servoBase.write(0);
   }
   if (digitalRead(btnReset) == LOW)
     runningTime = 0;
