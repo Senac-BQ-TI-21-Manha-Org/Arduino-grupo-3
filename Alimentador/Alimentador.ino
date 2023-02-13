@@ -3,6 +3,8 @@
 int const btnReset = 2, btnOpen = 3;
 
 int const timeToOpen = 15, openTime = 3; //Em segundos
+int const servoOpen = 200, servoClose = 0;
+
 int runningTime = 0;
 
 Servo servoBase;
@@ -22,10 +24,10 @@ void loop() {
   if (runningTime >= (timeToOpen * 100) || digitalRead(btnOpen) == LOW) {
     runningTime = 0;
     Serial.println("open");
-    servoBase.write(200);
+    servoBase.write(servoOpen);
     delay(openTime * 1000);
     Serial.println("close");
-    servoBase.write(0);
+    servoBase.write(servoClose);
   }
   if (digitalRead(btnReset) == LOW)
     runningTime = 0;
